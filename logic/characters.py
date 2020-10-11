@@ -1,5 +1,12 @@
+import pygame
+
 ### LOGIQUE ###
 SPRITE_SIZE = 40
+
+hero_image = pygame.image.load('Images/MacGyver.png')
+
+gardien_image = pygame.image.load('Images/gardien.png')
+
 
 class Character:
 
@@ -28,24 +35,13 @@ class Hero(Character):
 		return self.x
 
 	def get_y(self):
-		return self.y	
-
-	def print(self):
-		print(self.x)			
-
-### AFFICHAGE ###		
-
-	#def draw(self, DISPLAY):
-	#	DISPLAY.blit(hero_image,(self.x, self.y))	
-
-### LOGIQUE###
+		return self.y			
+	
 class Ennemy(Character):
 
 	def __init__(self, x, y):
 		super().__init__(x, y)
-
-### AFFICHAGE ###		
+		
 	
-	#def draw(self, DISPLAY):
-	#	DISPLAY.blit(gardien_image, (self.x, self.y))		
+	
 			
