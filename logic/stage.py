@@ -1,10 +1,4 @@
-## CONSTANTE
-
-
 SPRITE_SIZE = 40
-
-# Création d'une liste qui va contenir toutes les coordonnées [x,y] des sprites sous forme de tableau
-# x est le premier élement du tableau, y le second Coordonates =[]
 
       
 ### LOGIQUE ###      
@@ -45,6 +39,8 @@ class Stage:
         # Si la valeur dans Map vaut 1, on ajoute le couple de coordonnées du tableau Coordonates au même index à Sprites_for_path            
                 self.sprites_for_path.append(self.coordonates[i])   
                       
+    def get_arrays(self):
+        return self.sprites_for_path                
 
        
 

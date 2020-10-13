@@ -1,12 +1,17 @@
 import logic
 from logic import characters
 from logic import stage
+from logic import element
 
 import display
 
+def main():
+	
+
+
+if __name__ =='__main__':
+	main()	
  
-MacGyver = characters.Hero(3,0)
-Labyrinth = stage.Stage('Map/map1.txt')
-Labyrinth.generate()
+### a completer ###
 
 
