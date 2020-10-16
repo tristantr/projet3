@@ -1,11 +1,6 @@
-SPRITE_SIZE = 40
+from logic import constants
 
       
-### LOGIQUE ###      
-
-#sprites_for_wall = [] # On créé un tableau avec les coordonnées des élements associés à la valeur 0
-#sprites_for_path = [] # On créé un tableau avec les coordonnées des élements associés à la valeur 1
-
 class Stage:
     def __init__(self, file):
         self.file = file
@@ -21,7 +16,7 @@ class Stage:
 
         for j in range(self.index_first_sprite, self.index_last_line_sprite + 1):                      
             for i in range (self.index_first_sprite, self.index_last_line_sprite + 1):                 
-                self.coordonates.append([i * SPRITE_SIZE, j * SPRITE_SIZE]) 
+                self.coordonates.append([i * constants.SPRITE_SIZE, j * constants.SPRITE_SIZE]) 
 
 
     def generate(self):

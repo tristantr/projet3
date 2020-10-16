@@ -1,35 +1,27 @@
-import pygame
-
-### j'ai importé pygame dans la partie logique. C'est peut etre pas ce qui est demandé. C'est juste pour resizer les images dès que je créé une instance
-
-SPRITE_SIZE = 40
+from logic import constants
 
 class Character:
 
-	def __init__(self, image, x, y):
-		self.image = pygame.transform.scale(pygame.image.load(image), (40,40))
-		self.x = x * 40
-		self.y = y * 40	
+	def __init__(self, x, y):
+		self.x = x * constants.SPRITE_SIZE
+		self.y = y * constants.SPRITE_SIZE	
 
 class Hero(Character):
 
-	def __init__(self, image, x, y):
-		super().__init__(image, x, y)
+	def __init__(self, x, y):
+		super().__init__(x, y)
 
 	def go_up(self):
-		self.y -= SPRITE_SIZE
+		self.y -= constants.SPRITE_SIZE
 
 	def go_down(self):
-		self.y += SPRITE_SIZE
+		self.y += constants.SPRITE_SIZE
 
 	def go_right(self):
-		self.x += SPRITE_SIZE
+		self.x += constants.SPRITE_SIZE
 
 	def go_left(self):
-		self.x -= SPRITE_SIZE
-
-#	def dont_move(self):
-#		pass	
+		self.x -= constants.SPRITE_SIZE
 
 	def get_x(self):
 		return self.x
@@ -39,8 +31,8 @@ class Hero(Character):
 	
 class Ennemy(Character):
 
-	def __init__(self, image, x, y):
-		super().__init__(image, x, y)
+	def __init__(self, x, y):
+		super().__init__(x, y)
 		
 	
 	
