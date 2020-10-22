@@ -1,9 +1,8 @@
-class Element:	# super classe qui contient les personnages et le stage
-	def __init__(self, hero, ennemy, stage):
+class Element:
+	def __init__(self, hero, ennemy, stage, items):
 		self.hero = hero
 		self.ennemy = ennemy
 		self.stage = stage
-		self.items = []
+		self.items = items
 
-	def add_item(self, objet):
-		self.items.append(objet)	
+
