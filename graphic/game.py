@@ -1,3 +1,7 @@
+"""
+Module with all our game functionalities
+"""
+
 import pygame
 from logic import constants
 
@@ -6,10 +10,9 @@ class Game:
     """
     Class to generate the game, that will be called in main
 
-    """ 
+    """
 
     def __init__(self, element, element_graphic, isReplay):
-    # def __init__(self, element, element_graphic):        
         """
         Init method for the Game class
 
@@ -17,12 +20,10 @@ class Game:
         ----------
         element : obj
             From Element class in Logic/element.py
-            
         element_graphic: obj
             From ElementDisplay class in Graphic/element_graphic.py
-
-        isReplay : bool    
-        """         
+        isReplay : bool
+        """
         self.element = element
         self.element_graphic = element_graphic
         self.replay = False
@@ -31,9 +32,9 @@ class Game:
 
     def _event_quit_Pygame(self):
         """
-        Quit pygame when you want by clicking the red cross 
+        Quit pygame when you want by clicking the red cross
 
-        """         
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -43,7 +44,7 @@ class Game:
         """
         Initialise pygame and start the game
 
-        """            
+        """
         pygame.init()
         pygame.display.set_caption("Projet3")
         self.font = pygame.font.SysFont('comicsans', 20, True)
@@ -54,11 +55,13 @@ class Game:
         """
         Run the game after clicking the homescreen space bar
 
-        """          
+        """
         run = True
         while run:
             self._event_quit_Pygame()
-            if [self.element.ennemy.x, self.element.ennemy.y] != [self.element.hero.get_x(), self.element.hero.get_y()]:
+            if [self.element.ennemy.x,
+               self.element.ennemy.y] != [self.element.hero.get_x(),
+                                          self.element.hero.get_y()]:
                 self._move_character()
             else:
                 run = False
@@ -73,9 +76,9 @@ class Game:
         self.replay: bool
             True if the player replays, wrong otherwise
         self.quit: bool
-            True if the player quit, wrong otherwise    
+            True if the player quit, wrong otherwise
 
-        """         
+        """
         game_over = True
         while game_over:
             self._event_quit_Pygame()
@@ -94,7 +97,7 @@ class Game:
         """
         Replay with new items position or quit pygame
 
-        """         
+        """
 
         pygame.time.delay(100)
         keys = pygame.key.get_pressed()
@@ -117,13 +120,16 @@ class Game:
         """
         Display the game window with up-to-date parameters
 
-        """           
+        """
         text = self.font.render('My inventory: ' + '{} / 4'.format(
-            len(self.element_graphic.itemsDisplay.picked_items)), 1, constants.WHITE)
+            len(self.element_graphic.itemsDisplay.picked_items)),
+            1, constants.WHITE)
         self.element_graphic.stageDisplay.display()
         self.element_graphic.stageDisplay.display_right_window()
-        constants.SCREEN.blit(text, ((constants.LAST_GAME_PIXEL +
-                                      constants.LAST_PIXEL) / 2 - text.get_width()/2, constants.SPRITE_SIZE))
+        constants.SCREEN.blit(
+            text,
+            ((constants.LAST_GAME_PIXEL + constants.LAST_PIXEL) / 2 - text.get_width()/2,
+             constants.SPRITE_SIZE))
         self.element_graphic.itemsDisplay.display()
         self.element_graphic.personnageDisplay.display()
         pygame.display.update()
@@ -132,7 +138,7 @@ class Game:
         """
         Display the homescreen window
 
-        """           
+        """
         home_screen = True
         while home_screen and not self.isReplayRun:
             self._event_quit_Pygame()
@@ -146,16 +152,25 @@ class Game:
         """
         Display the game-over window
 
-        """   
+        """
         self._event_quit_Pygame()
         if self.element_graphic.itemsDisplay.items_to_display != []:
-            constants.SCREEN.blit(pygame.transform.scale(pygame.image.load('Images/game_over.png'), (constants.LAST_GAME_PIXEL //
-                                                                                                     2, constants.LAST_GAME_PIXEL // 2)), (constants.LAST_GAME_PIXEL // 4, constants.LAST_GAME_PIXEL // 4))
+            constants.SCREEN.blit(
+                pygame.transform.scale(
+                    pygame.image.load('Images/game_over.png'),
+                    (constants.LAST_GAME_PIXEL // 2,
+                     constants.LAST_GAME_PIXEL // 2)),
+                (constants.LAST_GAME_PIXEL // 4,
+                 constants.LAST_GAME_PIXEL // 4))
             self.element_graphic.personnageDisplay.remove_hero()
         else:
-            constants.SCREEN.blit(pygame.transform.scale(pygame.image.load('Images/you_win.png'), (constants.LAST_GAME_PIXEL //
-                                                                                                   2, constants.LAST_GAME_PIXEL // 2)), (constants.LAST_GAME_PIXEL // 4, constants.LAST_GAME_PIXEL // 4))
-            # self.element_graphic.personnageDisplay.remove_ennemy()
+            constants.SCREEN.blit(
+                pygame.transform.scale(
+                    pygame.image.load('Images/you_win.png'),
+                    (constants.LAST_GAME_PIXEL // 2,
+                     constants.LAST_GAME_PIXEL // 2)),
+                (constants.LAST_GAME_PIXEL // 4,
+                 constants.LAST_GAME_PIXEL // 4))
         self.element_graphic.personnageDisplay.display()
         self.element_graphic.screenDisplay.displayPlayAgain()
         pygame.display.update()

@@ -1,12 +1,14 @@
+"""
+Module to create characters
+"""
 from logic import constants
 
-class Character:
 
+class Character:
     """
     Mother-class: Create a character
 
     """
-
     def __init__(self, x, y, image):
 
         """
@@ -20,23 +22,18 @@ class Character:
             character sprite ordinate (between 0 and 14)
         image : string
             character image
-
         """
-
         self.x = x * constants.SPRITE_SIZE
         self.y = y * constants.SPRITE_SIZE
         self.image = image
 
 
 class Hero(Character):
-
     """
     Descendant class from Character class: Create the game hero
 
-    """    
-
+    """
     def __init__(self, x, y, image):
-
         """
         Parameters
         ----------
@@ -63,7 +60,7 @@ class Hero(Character):
         """
         Move the hero 40 pxl down
 
-        """    
+        """
         self.y += constants.SPRITE_SIZE
 
     def go_right(self):
@@ -75,7 +72,7 @@ class Hero(Character):
         self.x += constants.SPRITE_SIZE
 
     def go_left(self):
-    
+
         """
         Move the hero 40 pxl left
 
@@ -83,11 +80,11 @@ class Hero(Character):
         self.x -= constants.SPRITE_SIZE
 
     def get_x(self):
-    
+
         """
         Returns the hero abscissa
 
-        """  
+        """
         return self.x
 
     def get_y(self):
@@ -104,7 +101,7 @@ class Ennemy(Character):
     """
     Descendant class from Character class: Create the game hero
 
-    """  
+    """
 
     def __init__(self, x, y, image):
 
@@ -118,5 +115,5 @@ class Ennemy(Character):
         image : string
             Hero image
 
-        """ 
+        """
         super().__init__(x, y, image)

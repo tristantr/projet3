@@ -14,25 +14,29 @@ from graphic.element_graphic import ElementDisplay
 from graphic.game import Game
 
 
-def main(isReplay = False):
+def main(isReplay=False):
     """
     Main function of the game
-    Create all objects of our game: 
+    Create all objects of our game:
         - The hero
         - The ennemy
         - The stage
         - Items one by one
         - The pack of items
         - Objects for the Element and Element_graphic classes
-        - The Game(element, element_graphic) object    
+        - The Game(element, element_graphic) object
 
     """
 
     # CHARACTERS
     macGyver = characters.Hero(
-        constants.FIRST_SPRITE[0], constants.FIRST_SPRITE[1], 'Images/MacGyver.png')
-    gardien = characters.Ennemy(constants.LAST_SPRITE[0] // constants.SPRITE_SIZE,
-                                constants.LAST_SPRITE[1] // constants.SPRITE_SIZE, 'Images/gardien.png')
+        constants.FIRST_SPRITE[0],
+        constants.FIRST_SPRITE[1],
+        'Images/MacGyver.png')
+    gardien = characters.Ennemy(
+        constants.LAST_SPRITE[0] // constants.SPRITE_SIZE,
+        constants.LAST_SPRITE[1] // constants.SPRITE_SIZE,
+        'Images/gardien.png')
 
     # STAGE
     labyrinth = stage.Stage('Map/map2.txt')
@@ -51,7 +55,8 @@ def main(isReplay = False):
 
     # INSTANCES GRAPHIQUES
     personnageDisplay = characters_graphic.PersonnageDisplay(
-        element.hero, element.ennemy)
+        element.hero,
+        element.ennemy)
     stageDisplay = stage_graphic.StageDisplay(element.stage)
     itemsDisplay = items_graphic.ItemsDisplay(
         element.hero, element.items.items_to_display)
@@ -70,6 +75,7 @@ def main(isReplay = False):
         main(True)
     if game.quit:
         pygame.quit()
-      
+
+
 if __name__ == '__main__':
     main()

@@ -1,7 +1,10 @@
+"""
+Module for constants
+"""
 import pygame
 
 # GLOBAL WINDOW
-#HOME_SCREEN = pygame.display.set_mode((800,600))
+# HOME_SCREEN = pygame.display.set_mode((800,600))
 SCREEN = pygame.display.set_mode((800, 600))
 
 

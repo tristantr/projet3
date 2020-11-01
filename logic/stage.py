@@ -1,3 +1,7 @@
+"""
+Module to create the stage
+"""
+
 from . import constants
 
 
@@ -6,7 +10,7 @@ class Stage:
     """
     Create a stage
 
-    """    
+    """
     def __init__(self, file):
         """
         Init method for the Stage class
@@ -15,7 +19,7 @@ class Stage:
         ----------
         file : str
             Txt File from the Map directory
-        """   
+        """
 
         self.file = file
         self.sprites_for_walls = []
@@ -29,26 +33,28 @@ class Stage:
     def _create_coordonates(self):
 
         """
-        Generate the list of our stage possible coordonates 
+        Generate the list of our stage possible coordonates
 
         Returns
         -------
         list
-            Coordonates 
+            Coordonates
 
 
-        """   
+        """
 
         self.coordonates = []
 
-        for j in range(self.index_first_sprite, self.index_last_sprite_of_a_line + 1):
-            for i in range(self.index_first_sprite, self.index_last_sprite_of_a_line + 1):
+        for j in range(self.index_first_sprite,
+                       self.index_last_sprite_of_a_line + 1):
+            for i in range(self.index_first_sprite,
+                           self.index_last_sprite_of_a_line + 1):
                 self.coordonates.append(
-                    [i * constants.SPRITE_SIZE, j * constants.SPRITE_SIZE])        
+                    [i * constants.SPRITE_SIZE, j * constants.SPRITE_SIZE])
 
     def generate(self):
         """
-        Read the Map file and create lists of sprites for wall and sprite for path coordonates
+        Read Map files and make lists of sprites coordonates for wall and path
 
         Returns
         -------
@@ -75,4 +81,3 @@ class Stage:
 
         """
         return self.sprites_for_path
-
